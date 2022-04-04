@@ -54,7 +54,15 @@ while true; do
     esac
 done
 
-
+# install discord
+echo "Installing Discord..."
+sudo pacman -S discord
+sudo touch /usr/bin/discord-startup-minimized
+sudo chmod 777 /usr/bin/discord-startup-minimized
+echo 'discord --start-minimized' | sudo tee -a /usr/bin/discord-startup-minimized > /dev/null
+sleep 2s
+echo "Go to System Settings > Startup and Shutdown > add /usr/bin/discord-startup-minimized as a login script"
+sleep 1s
 # install wine and other stuffs needed for epic gamers
 echo "Install wine for gaming..."
 
@@ -138,9 +146,6 @@ sudo pacman -S --needed korganizer kdepim-addons
 
 echo "Installing a printer settings manager. Find drivers on the AUR or hplip and hplip-plugins if using HP."
 sudo pacman -S --needed print-manager gscan2pdf
-
-echo "Installing Discord..."
-sudo pacman -S --needed discord
 
 echo "Installing Flatpak..."
 sudo pacman -S --needed flatpak
