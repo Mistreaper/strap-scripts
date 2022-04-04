@@ -39,7 +39,16 @@ if ! [ -x "$(command -v yay)" ]; then
     cd ..
     sudo rm -r yay-bin
     echo "When installing something with yay, press enter to continue"
-fi 
+fi
+
+# install Chaotic AUR (precompiled AUR binaries)
+sudo pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
+sudo pacman-key --lsign-key FBA220DFC880C036 
+sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst' 
+echo '[chaotic-aur]' | sudo tee -a /etc/pacman.conf> /dev/null 
+echo 'Include = /etc/pacman.d/chaotic-mirrorlist' | sudo tee -a /etc/pacman.conf > /dev/null
+sudo pacman -Sy # sync chaotic AUR
+
 # browser installation prompt with numbers (user input)
 # Packages: Opera will be opera and opera-ffmpeg-codes, Chrome is google-chrome (AUR), Edge is microsoft-edge-stable-bin (AUR), Brave is brave-bin (AUR). 
 while true; do
@@ -57,12 +66,6 @@ done
 # install discord
 echo "Installing Discord..."
 sudo pacman -S discord
-sudo touch /usr/bin/discord-startup-minimized
-sudo chmod 777 /usr/bin/discord-startup-minimized
-echo 'discord --start-minimized' | sudo tee -a /usr/bin/discord-startup-minimized > /dev/null
-sleep 2s
-echo "Go to System Settings > Startup and Shutdown > add /usr/bin/discord-startup-minimized as a login script"
-sleep 1s
 # install wine and other stuffs needed for epic gamers
 echo "Install wine for gaming..."
 
@@ -252,6 +255,22 @@ while true; do
         [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
+done
+# Anbox android emulator
+while true; do  
+    read -p "Install Anbox and do the setup automatically? (y/n)" yn
+    case $yn in 
+        [Yy]* ) yay -S --needed anbox-git iwd anbox-image-gapps anbox-modules-dkms; 
+        sudo systemctl start anbox-container-manager.service && sudo systemctl enable anbox-container-manager.service; 
+        echo 'ashmem_linux' | sudo tee -a /etc/modules-load.d/anbox.conf > /dev/null; 
+        echo 'binder_linux' | sudo tee -a /etc/modules-load.d/anbox.conf > /dev/null;
+        sudo systemctl enable --now systemd-networkd.service;
+        sudo systemctl enable --now iwd;
+        break;; 
+        [Nn]* ) break;;
+        * ) echo "Please answer yes or no.";; 
+    esac 
+
 done 
 
 echo "Your system is now ready to use."
