@@ -28,9 +28,9 @@ chmod +x strap-education-edition.sh && ./strap-education-edition.sh
 
 `wine-staging` and `lutris`: Windows compatibility layer + frontend.
 
-`opera-ffmpeg-codecs`: This is proprietary codecs, not installed automatically when installing the `opera` package
+`opera-ffmpeg-codecs`: These are proprietary codecs, not installed automatically when installing the `opera` package
 
-`steam`: You know this, it's a game platform
+`steam`: You know this. 
 
 `polymc`: This is a Minecraft launcher, the official one is broken and `multimc`'s creator hasn't maintainted the AUR package and he is a manchild who throws tantrums.
 
