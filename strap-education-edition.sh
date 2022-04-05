@@ -184,6 +184,16 @@ while true; do
     esac
 done
 
+# Install OBS Studio (video recorder for youtube and streaming)
+while true; do 
+    read -p "Do you want to install OBS studio and its prerequisites? (y/n)" yn
+    case $yn in 
+        [Yy]* ) sudo pacman -S --needed obs-studio v4l2loopback-dkms; break;;
+        [Nn]* ) break;;
+        * ) echo "Please answer yes or no.";;
+    esac 
+    
+done 
 while true; do 
     read -p "Do you want to install fritzing and libreCAD (computer aided design)? (y/n)" yn
     case $yn in
