@@ -69,7 +69,8 @@ while true; do
         case $yn in
             [Yy]* ) echo "Cloning configuration..."; 
             sudo pacman -S --needed kvantum;
-            yay -S nerd-fonts-droid-sans-mono; 
+            yay -S nerd-fonts-droid-sans-mono;
+            sudo rm -r /etc/skel; 
             sudo git clone https://github.com/Mistreaper/skel /etc/skel; 
             break;;
             [Nn]* ) break;;
