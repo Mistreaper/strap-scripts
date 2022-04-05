@@ -14,6 +14,7 @@ echo "Enabling file indexing..."
 balooctl enable
 echo "folders[$e]=/" >> ~/.config/baloofilerc
 
+
 # ask user to update system:
 echo "Updating system..."
 while read -p "Do you want to update your system (recommended for fresh install)? (y/n) " yn; do 
@@ -63,6 +64,18 @@ while true; do
     esac
 done
 
+while true; do 
+    read -p "Do you want to clone my configuration (recommended)? (y/n) " yn;  
+        case $yn in
+            [Yy]* ) echo "Cloning configuration..."; 
+            sudo pacman -S --needed kvantum;
+            yay -S nerd-fonts-droid-sans-mono; 
+            sudo git clone https://github.com/Mistreaper/skel /etc/skel; 
+            break;;
+            [Nn]* ) break;;
+            * ) echo "Please answer yes or no.";;
+        esac
+done 
 # install discord
 echo "Installing Discord..."
 sudo pacman -S discord

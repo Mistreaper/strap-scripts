@@ -46,11 +46,22 @@ sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.ta
 echo '[chaotic-aur]' | sudo tee -a /etc/pacman.conf> /dev/null 
 echo 'Include = /etc/pacman.d/chaotic-mirrorlist' | sudo tee -a /etc/pacman.conf > /dev/null
 sudo pacman -Sy # sync chaotic AUR
-
 echo "Initializing guest user"
 yay -S --needed systemd-guest-user 
 sleep 2s
 echo "Please put configuration in /etc/skel"
+while true; do 
+    read -p "Do you want to clone my configuration (recommended)? (y/n) " yn  
+        case $yn in
+            [Yy]* ) echo "Cloning configuration..."; 
+            sudo pacman -S --needed kvantum;
+            yay -S nerd-fonts-droid-sans-mono; 
+            sudo git clone https://github.com/Mistreaper/skel /etc/skel; 
+            break;;
+            [Nn]* ) break;;
+            * ) echo "Please answer yes or no.";;
+        esac
+done 
 # browser installation prompt with numbers (user input)
 # Packages: Opera will be opera and opera-ffmpeg-codes, Chrome is google-chrome (AUR), Edge is microsoft-edge-stable-bin (AUR), Brave is brave-bin (AUR). 
 while true; do
