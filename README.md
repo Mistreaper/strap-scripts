@@ -46,7 +46,7 @@ chmod +x strap-education-edition.sh && ./strap-education-edition.sh
 
 `grapejuice-git`: This is grapejuice, a launcher for Roblox wine.
 
-## For education edition, there may be several EXTRA software installed:
+## For education edition, there are several EXTRA software installed:
 
 `veyon`: FOSS software for classroom control in computer labs.
 
