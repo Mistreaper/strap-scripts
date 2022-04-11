@@ -195,6 +195,18 @@ while true; do
     esac
 done
 
+# omz
+while true; do 
+    read -p "Do you want to install Oh My Zsh (autocompletion + themes)? (y/n)" yn
+    case $yn in
+        [Yy]* ) yay -S --needed oh-my-zsh-git; 
+        sudo pacman -R grml-zsh-config;
+        break;;
+        [Nn]* ) break;;
+        * ) echo "Please answer yes or no.";
+    esac
+
+done
 # visual studio code
 while true; do 
     read -p "Install VSCode (text editor)? (y/n)" yn
@@ -305,7 +317,8 @@ while true; do
         * ) echo "Please answer yes or no.";; 
     esac 
 
-done 
+done
+
 
 echo "Your system is now ready to use."
 sleep 3s

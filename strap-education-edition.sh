@@ -169,6 +169,20 @@ while true; do
         * ) echo "Please answer yes or no.";;
     esac
 done
+
+
+# omz
+while true; do 
+    read -p "Do you want to install Oh My Zsh (autocompletion + themes)? (y/n)" yn
+    case $yn in
+        [Yy]* ) yay -S --needed oh-my-zsh-git; 
+        sudo pacman -R grml-zsh-config;
+        break;;
+        [Nn]* ) break;;
+        * ) echo "Please answer yes or no.";
+    esac
+
+done
 # Veyon 
 while true; do
     read -p "Do you want to install Veyon (classroom control)? (y/n)" yn
