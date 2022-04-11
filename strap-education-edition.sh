@@ -216,6 +216,14 @@ while true; do
     esac
 done
 
+while true; do 
+    read -p "Do you want to install KTouch (touch typing tutor)? (y/n)" yn
+    case $yn in
+        [Yy]* ) yay -S --needed ktouch; break;;
+        [Nn]* ) break;;
+        * ) echo "Please answer yes or no.";;  
+    esac
+done
 while true; do
     read -p "Do you want to install Scratch (block based programming)? (y/n)" yn
     case $yn in
