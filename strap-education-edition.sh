@@ -140,6 +140,9 @@ systemctl --user enable --now onedrive.service
 echo "Installing a mail client..."
 yay -S --needed mailspring gnome-keyring libsecret seahorse kwalletmanager
 
+echo "Installing camera app (Kamoso)..."
+sudo pacman -S --needed kamoso 
+
 echo "Installing a printer settings manager. Find drivers on the AUR or hplip and hplip-plugins if using HP."
 sudo pacman -S --needed print-manager gscan2pdf
 
