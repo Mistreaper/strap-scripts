@@ -54,4 +54,6 @@ chmod +x strap-education-edition.sh && ./strap-education-edition.sh
 
 `fritzing` and `librecad`: These are software for Computer Aided Design (CAD). Useful for teaching computers and how they work.
 
-`scratch3-bin`: Block-based programming, useful for learning algorithm before stepping into Python or other text-based languages. 
+`scratch3-bin`: Block-based programming, useful for learning algorithm before stepping into Python or other text-based languages.
+
+`ktouch`: This is a touch typing tutor for noobs and experienced touch typers made by KDE.  
