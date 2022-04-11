@@ -4,6 +4,8 @@
 
 As a way for me to practice shell scripting, I've created two scripts to automate Arch Linux setup for end users and schools. This script automates wine installation (gaming), chaotic AUR, anbox, and many more. You may use this script for any purpose, and you may redistribute/modify it to suit you or your organization.
 
+
+
 ## Usage
 
 For end users:
@@ -21,6 +23,8 @@ git clone https://github.com/Mistreaper/strap-scripts
 cd strap-scripts
 chmod +x strap-education-edition.sh && ./strap-education-edition.sh
 ```
+
+![](/img/archlunix.png)
 
 ## Quick info about applications installed
 
