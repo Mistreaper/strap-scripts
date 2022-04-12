@@ -302,19 +302,17 @@ while true; do
 done
 # Anbox android emulator
 while true; do  
-    read -p "Install Anbox and do the setup automatically? (y/n)" yn
+    read -p "Install Android Studio (android emulator)? (y/n)" yn
     case $yn in 
-        [Yy]* ) yay -S --needed anbox-git iwd anbox-image-gapps anbox-modules-dkms; 
-        sudo systemctl start anbox-container-manager.service && sudo systemctl enable anbox-container-manager.service; 
-        echo 'ashmem_linux' | sudo tee -a /etc/modules-load.d/anbox.conf > /dev/null; 
-        echo 'binder_linux' | sudo tee -a /etc/modules-load.d/anbox.conf > /dev/null;
-        sudo modprobe binder_linux devices=binder,hwbinder,vndbinder,anbox-binder,anbox-hwbinder,anbox-vndbinder;
-        sudo modprobe ashmem_linux;
-        sudo mkdir -p /dev/binderfs;
-        sudo mount -t binder binder /dev/binderfs;
-        sudo systemctl enable --now systemd-networkd.service;
-        sudo systemctl enable --now iwd;
-        systemctl --user enable anbox-session-manager.service --now;
+        [Yy]* ) yay -S --needed android-studio;
+        sleep 2s;
+        echo "Please click the drop down menu in android studio > virtual device manager";
+        sleep 2s; 
+        echo "When creating a new device, please choose Android 12.0 and choose the ones with the Google Play Store icon";
+        sleep 2s;
+        echo "This is so that we can install apps";
+        sleep 1s;
+        echo "More can be found on the Discord server, the koolguides channel";
         break;; 
         [Nn]* ) break;;
         * ) echo "Please answer yes or no.";; 
