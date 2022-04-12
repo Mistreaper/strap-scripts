@@ -137,6 +137,9 @@ echo "Installing onedrive and gdrive..."
 yay -S --needed onedrive-abraunegg kio-gdrive 
 systemctl --user enable --now onedrive.service 
 
+echo "Installing unrar..."
+sudo pacman -S --needed unrar
+
 echo "Installing a mail client..."
 yay -S --needed mailspring gnome-keyring libsecret seahorse kwalletmanager
 

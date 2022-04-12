@@ -162,6 +162,9 @@ yay -S --needed mailspring gnome-keyring libsecret seahorse kwalletmanager
 echo "Installing korganizer and kdepim-addons..."
 sudo pacman -S --needed korganizer kdepim-addons
 
+echo "Installing unrar..."
+sudo pacman -S --needed unrar
+
 echo "Installing camera app (kamoso)..."
 sudo pacman -S --needed kamoso 
 
