@@ -86,7 +86,11 @@ sudo pacman -Sy # you need to run this
 while true; do
     read -p "Do you wish to install wine (windows app support)? (y/n) " yn
     case $yn in
-        [Yy]* ) sudo pacman -S wine-staging lutris xdelta3 xterm zenity winetricks exe-thumbnailer wine-mono wine-gecko; break;;
+        [Yy]* ) sudo pacman -S wine-staging lutris xdelta3 xterm zenity winetricks exe-thumbnailer wine-mono wine-gecko;
+        winecfg;
+        echo "[Software\\\\Wine\\\\X11 Driver] 1269299093" >> ~/.wine/user.reg;
+        echo "\"UseXVidMode\" =\"N\"" >> ~/.wine/user.reg;
+         break;;
         [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac

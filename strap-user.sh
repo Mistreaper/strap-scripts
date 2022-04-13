@@ -90,9 +90,10 @@ sudo sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 sudo pacman -Sy # you need to run this
 echo "When installing lutris, remember to pick the package that matches your GPU!"
 sleep 2s # wait for user to read
-sudo pacman -S --needed wine-staging wine-mono wine-gecko \
-winetricks lutris zenity \
-xterm xdelta3 
+sudo pacman -S --needed wine-staging wine-mono wine-gecko winetricks lutris zenity xterm xdelta3
+winecfg
+echo "[Software\\\\Wine\\\\X11 Driver] 1269299093" >> ~/.wine/user.reg
+echo "\"UseXVidMode\" =\"N\"" >> ~/.wine/user.reg 
 
 # steam installation
 while true; do
