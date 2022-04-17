@@ -280,7 +280,7 @@ done
 while true; do
     read -p "Would you like to install Minecraft/PolyMC? (y/n)" yn
     case $yn in
-        [Yy]* ) yay -S --needed polymc-bin redshift;
+        [Yy]* ) yay -S --needed polymc redshift;
                 break;;
         [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
