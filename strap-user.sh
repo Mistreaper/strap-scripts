@@ -301,25 +301,6 @@ while true; do
         * ) echo "Please answer yes or no.";;
     esac
 done
-# Anbox android emulator
-while true; do  
-    read -p "Install Android Studio (android emulator)? (y/n)" yn
-    case $yn in 
-        [Yy]* ) yay -S --needed android-studio;
-        sleep 2s;
-        echo "Please click the drop down menu in android studio > virtual device manager";
-        sleep 2s; 
-        echo "When creating a new device, please choose Android 12.0 and choose the ones with the Google Play Store icon";
-        sleep 2s;
-        echo "This is so that we can install apps";
-        sleep 1s;
-        echo "More can be found on the Discord server, the koolguides channel";
-        break;; 
-        [Nn]* ) break;;
-        * ) echo "Please answer yes or no.";; 
-    esac 
-
-done
 
 
 echo "Your system is now ready to use."
