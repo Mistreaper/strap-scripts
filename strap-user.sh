@@ -278,7 +278,7 @@ done
 
 # Minecraft
 while true; do
-    read -p "Would you like to install PolyMC (better MC launcher)? (y/n)" yn
+    read -p "Would you like to install the official Minecraft Launcher? (y/n)" yn
     case $yn in
         [Yy]* ) yay -S --needed minecraft-launcher;
                 sudo wget https://gist.githubusercontent.com/Mistreaper/15b82964a1ac08fbcf087a437c1ae412/raw/df629d2a7e79ce85534a3aea4eed25d0879aeede/minecraft-launcher.desktop -O /usr/share/applications/minecraft-launcher.desktop;
