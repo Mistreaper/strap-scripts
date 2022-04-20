@@ -278,7 +278,18 @@ done
 
 # Minecraft
 while true; do
-    read -p "Would you like to install Minecraft/PolyMC? (y/n)" yn
+    read -p "Would you like to install PolyMC (better MC launcher)? (y/n)" yn
+    case $yn in
+        [Yy]* ) yay -S --needed minecraft-launcher;
+                sudo wget https://gist.githubusercontent.com/Mistreaper/15b82964a1ac08fbcf087a437c1ae412/raw/df629d2a7e79ce85534a3aea4eed25d0879aeede/minecraft-launcher.desktop -O /usr/share/applications/minecraft-launcher.desktop;
+                break;;
+        [Nn]* ) break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+while true; do
+    read -p "Would you like to install PolyMC (better MC launcher)? (y/n)" yn
     case $yn in
         [Yy]* ) yay -S --needed polymc redshift;
                 break;;
@@ -293,10 +304,15 @@ while true; do
     case $yn in
         [Yy]* ) yay -S --needed grapejuice-git;
         echo "Please read the documentation: https://brinkervii.gitlab.io/grapejuice/docs/Guides/Installing-Wine.html";
-        sleep 2s
-        echo "Run the commands after you create your grapejuice WINEPREFIX and install roblox"
-        sleep 3s; 
-         break;;
+        sleep 2s;
+        sudo wget https://pastebin.com/raw/5SeVb005 -O /usr/bin/roblox-fix;
+        sleep 2s;
+        echo "Run python3 /usr/bin/roblox-fix after you create your grapejuice WINEPREFIX and install roblox"; 
+        sleep 3s;
+        sudo wget https://gist.githubusercontent.com/Mistreaper/127c28478076503780e2ea3ce49907f4/raw/a9c94146f108667e37bf932908063e45b4758ecf/grapejuice.desktop -O /usr/share/applications/grapejuice.desktop;
+        sudo wget https://gist.githubusercontent.com/Mistreaper/127c28478076503780e2ea3ce49907f4/raw/a9c94146f108667e37bf932908063e45b4758ecf/roblox-app.desktop -O /usr/share/applications/roblox-app.desktop;
+        sudo wget https://gist.githubusercontent.com/Mistreaper/127c28478076503780e2ea3ce49907f4/raw/a9c94146f108667e37bf932908063e45b4758ecf/roblox-studio.desktop -O /usr/share/applications/roblox-studio.desktop; 
+        break;;
         [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
