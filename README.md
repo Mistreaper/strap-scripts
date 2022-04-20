@@ -2,7 +2,7 @@
 
 ## What's this?
 
-As a way for me to practice shell scripting, I've created two scripts to automate Arch Linux setup for end users and schools. This script automates wine installation (gaming), chaotic AUR, anbox, and many more. You may use this script for any purpose, and you may redistribute/modify it to suit you or your organization.
+As a way for me to practice shell scripting, I've created two scripts to automate Arch Linux setup for end users and schools. This script automates wine installation (gaming), chaotic AUR, minecraft, and many more. You may use this script for any purpose, and you may redistribute/modify it to suit you or your organization.
 
 
 
@@ -30,13 +30,42 @@ chmod +x strap-education-edition.sh && ./strap-education-edition.sh
 
 ## For the user script:
 
+`yay`, AUR, and chaotic-aur: So basically, in Arch Linux you have two types of software repositories: the official ones and the AUR (Arch User Repository). The official repositories contain the most popular software, and you install `.pkg.tar.zst` files into `/var/cache/pacman/pkg` or somewhere else specified in `/etc/pacman.conf`. 
+
+You *can* specify custom repositories in `/etc/pacman.conf`, but the AUR is special; you upload `PKGBUILDS` instead of `.pkg.tar.zst` files. The file is used to create a `.pkg.tar.zst` file, which is then installed into your system.
+
+`PKGBUILDS` are a great way to distribute software, and it is one of the many features of `pacman` and Arch Linux that makes it great. The "manual" way to install it is like this:
+
+```
+git clone https://aur.archlinux.org/$PKGNAME.git
+cd $PKGNAME
+makepkg -si
+```
+But, with `yay`, you can just run `yay -S $PKGNAME` or even query the database with `yay -Ss $PKGNAME`. The tool will search the `pacman` repos first before searching the AUR.
+
+**What is the Chaotic AUR?**
+
+The Chaotic AUR is a pacman repository where you can install precompiled AUR binaries. This is useful for installing software that you don't want to compile yourself.
+
+The Chaotic AUR distributes binaries in `.pkg.tar.zst`, and you can use `pacman` to install from the Chaotic AUR.
+
+Websites: [
+    
+[Chaotic AUR guide](https://aur.chaotic.cx/)
+
+[Request a Chaotic AUR package](https://github.com/chaotic-aur/packages/issues/new?assignees=&labels=request%3Anew-pkg&template=new-package-requests.yml&title=%5BRequest%5D+)
+
+[Arch User Repos](https://aur.archlinux.org/) 
+
 `wine-staging` and `lutris`: Windows compatibility layer + frontend.
 
 `opera-ffmpeg-codecs`: These are proprietary codecs, not installed automatically when installing the `opera` package
 
 `steam`: You know this. 
 
-`polymc`: This is a Minecraft launcher, the official one is broken and `multimc`'s creator hasn't maintainted the AUR package and he is a manchild who throws tantrums.
+`minecraft-launcher`: Minecraft is a sandbox game created by Mojang. Note that you need to buy a Minecraft account and migrate it to Microsoft to play the game.
+
+`polymc`: This is a better Minecraft launcher that allows you to have several instances with different mods and texture packs. 
 
 `fcitx5` and others: This is for Chinese/Korean/Japanese input.
 
