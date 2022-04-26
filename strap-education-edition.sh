@@ -171,7 +171,7 @@ done
 while true; do
     read -p "Do you want to install a graphical package manager (recommended for beginners)? (y/n)" yn
     case $yn in 
-        [Yy]* ) yay -S --needed octopi; break;;
+        [Yy]* ) yay -S --needed pamac-aur; break;;
         [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
