@@ -178,6 +178,16 @@ while true; do
 done
 
 
+# Krecorder
+while true; do
+    read -p "Do you want to install a audio recorder? (y/n)" yn
+    case $yn in 
+        [Yy]* ) yay -S --needed krecorder; break;;
+        [Nn]* ) break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
 # omz
 while true; do 
     read -p "Do you want to install Oh My Zsh (autocompletion + themes)? (y/n)" yn
